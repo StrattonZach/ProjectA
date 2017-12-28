@@ -20,7 +20,7 @@ public class WorldInteraction : MonoBehaviour {
         {         
             if (Physics.Raycast(ray, out hit, 100))
             {
-                Debug.Log("hit: " + hit.point);
+                //Debug.Log("hit: " + hit.point);
                 // check the tag of hit(object hit in raycast) and preform action based on tag
                 if (hit.collider.tag == "Enemy")
                 {

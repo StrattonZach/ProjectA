@@ -30,11 +30,13 @@ public class BaseStat
     //Finds the first statBonus that matches and removes it
     public void RemoveStatBonus(StatBonus statBonus)
     {
-        this.BaseAdditives.Remove(statBonus);
+        this.BaseAdditives.Remove(BaseAdditives.Find(x => x.BonusValue == statBonus.BonusValue));
     }
 
     public int GetCalculatedStatValue()
     {
+        //set the FinalValue to 0 so it doesn't stack when adjusting value. 
+        this.FinalValue = 0;
         //add all the bonusValues that were added to the BaseAdditives to FinalValue
         this.BaseAdditives.ForEach(x => this.FinalValue += x.BonusValue);
         //add the new FinalValue to the BaseValue
